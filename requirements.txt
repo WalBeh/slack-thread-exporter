@@ -1,0 +1,3 @@
+logging
+slack_sdk
+requests
