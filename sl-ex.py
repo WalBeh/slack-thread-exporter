@@ -305,9 +305,16 @@ class SlackThreadExporter:
 # Example usage
 def main():
     parser = argparse.ArgumentParser(description='Export a Slack thread to markdown.')
-    parser.add_argument('slack_token', help='Slack API token')
-    parser.add_argument('slack_link', help='Slack thread link')
+    parser.add_argument('--slack-token', required=False, help='Slack API token')
+    parser.add_argument('--slack-link', required=True, help='Slack thread link')
     args = parser.parse_args()
+
+    # Retrieve Slack token from command-line argument or environment variable
+    slack_token = args.slack_token or os.getenv('SLACK_TOKEN')
+
+    if not slack_token:
+        logging.warning("Slack API token not provided via --slack-token or SLACK_TOKEN environment variable.")
+        sys.exit(1)
 
     # Configure logging
     logging.basicConfig(
