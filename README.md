@@ -18,7 +18,7 @@ A Python script to export Slack threads to Markdown files, including user mentio
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/slack-thread-exporter.git
+    git clone https://github.com/walbeh/slack-thread-exporter.git
     cd slack-thread-exporter
     ```
 
